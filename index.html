@@ -10,26 +10,34 @@
 </head>
 <body>
   <div id="payment">
-    <h3>CARD VALIDATION</h3>
-    <form>
-      <div class="form-group">
-        <label for="cn">Número de tarjeta</label>
-        <input id="cn" name="cn" />
-      </div>
-      <div class="form-group">
-        <label for="exp">Fecha de vencimiento</label>
-        <input id="exp" name="exp" />
-      </div>
-      <div class="form-group">
-        <label for="cvv">CVV</label>
-        <input id="cvv" name="cvv" />
-      </div>
-      <div class="form-group">
-        <label for="name">Nombre completo</label>
-        <input id="name" name="name" />
-      </div>
-      <input type="submit" value="Pagar" />
-    </form>
+    <div id="payment-icons">
+      
+    </div>  
+    <div id="payment-title">
+      Payment Information
+    </div>
+    <div id="payment-information">
+      <form>
+        <div class="form-group">
+          <label for="cn">Número de tarjeta</label>
+          <input id="cn" name="cn" />
+        </div>
+        <div class="form-group">
+          <label for="exp">Fecha de vencimiento</label>
+          <input id="exp" name="exp" />
+        </div>
+        <div class="form-group">
+          <label for="cvv">CVV</label>
+          <input id="cvv" name="cvv" />
+        </div>
+        <div class="form-group">
+          <label for="name">Nombre completo</label>
+          <input id="name" name="name" />
+        </div>
+        <input id="btn-pay" type="submit" value="PAGAR" />
+      </form>
+    </div>
+   
   </div>
   <script type="text/javascript" src="js/app.js"></script>
 </body>
