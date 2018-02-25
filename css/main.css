@@ -46,13 +46,17 @@ body {
   margin-top: 3vh;
   width: 100%; }
 
+.doble {
+  display: inline-block;
+  clear: both;
+  width: 46%; }
+
 .sucess {
-  color: red;
-  border-bottom: 1px solid green;
-  content: "•"; }
+  color: black;
+  border-bottom: 2px solid #BDDD6E; }
 
 .error {
-  border: 1px solid red; }
+  border-bottom: 2px solid red; }
 
 h3 {
   text-align: center; }
@@ -66,9 +70,16 @@ input {
   width: 100%;
   outline: none; }
 
+input::placeholder {
+  color: #E0E0E0; }
+
 label {
-  color: #B0B0B0;
+  color: #787878;
   display: block;
   font-size: 0.8em; }
+
+input:invalid {
+  content: "✖";
+  padding-left: 5px; }
 
 /*# sourceMappingURL=main.css.map */

@@ -10,7 +10,7 @@ body
   display: flex
   justify-content: center
 
-#payment 
+#payment
   background-color: white
   box-sizing: border-box
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19)
@@ -30,29 +30,33 @@ body
   display: flex
   height: 9vh
   padding-left: 1em
-  
+
 
 #payment-information
   box-sizing: border-box
-  padding: 2em  
+  padding: 2em
 
 #btn-pay
   background-color: #F36062
   border: none
   border-radius: 0.3em
-  color: white  
+  color: white
   display: block
   height: 6vh
   margin-top: 3vh
   width: 100%
 
+.doble
+  display: inline-block
+  clear: both
+  width: 46%
+
 .sucess
-  color: red
-  border-bottom: 1px solid green
-  content: "•"
+  color: black
+  border-bottom: 2px solid #BDDD6E
 
 .error
-  border: 1px solid red
+  border-bottom: 2px solid red
 
 h3
   text-align: center
@@ -67,10 +71,17 @@ input
   &:focus
   outline: none
 
-label 
-  color: #B0B0B0
+input::placeholder
+  color: #E0E0E0
+
+label
+  color: #787878
   display: block
   font-size: 0.8em
+
+input:invalid
+  content: '✖'
+  padding-left: 5px
 
 //'Quicksand', sans-serif;
 //'Mukta Mahee', sans-serif;
