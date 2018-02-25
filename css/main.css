@@ -1,3 +1,4 @@
+@charset "UTF-8";
 body {
   background: #D3CCE3;
   background: -webkit-linear-gradient(to bottom, #BCB1E3, #E9E4F0);
@@ -46,7 +47,9 @@ body {
   width: 100%; }
 
 .sucess {
-  color: red; }
+  color: red;
+  border-bottom: 1px solid green;
+  content: "•"; }
 
 .error {
   border: 1px solid red; }
