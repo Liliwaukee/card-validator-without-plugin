@@ -1,17 +1,8 @@
-
-
 const form = document.querySelector("form");
 
-form.addEventListener("submit", e => {
-  e.preventDefault();
-  if (validateCardDetails(form)) {
-    console.log("datos válido... enviar...");
-  } else {
-    console.log("datos inválidos");
-  }
-});
 
 
+//---------FUNCIÓN PARA VALIDAR SÓLO NÚMEROS ------------
 const onlyNumbers = e => {
   const key = window.event ? e.which : e.keyCode;
   if (key < 48 || key > 57) {
@@ -20,14 +11,13 @@ const onlyNumbers = e => {
 }
 
 
+//---------FUNCIÓN PARA VALIDAR TARJETA ------------
 const numberCardValidation = (number) => {
-
   let cardNumber = number.value.split(""); //convertimos en array
   let inverse = cardNumber.reverse();//87541... números al revés
   let odd = 0;
   let even = 0;
   let evenPlus = 0;
-
 
     for(let i = 0; i < 16; i++){ //aquí sacamos la suma de numeros impares
       if(i % 2 !== 1){
@@ -52,51 +42,94 @@ const numberCardValidation = (number) => {
              evenPlus = evenPlus + parseInt(9);
           }
         }
-
       //hacemos la de nuestros numeros pares, pares mayores e impares y comprobamos si son módulo de 10
       let ckeckCard = even + odd + evenPlus;
       if(ckeckCard % 10 === 0){
         number.classList.add("sucess");
+        return true;
       } else {
-         console.log("Your card is an invalid card");
+        number.classList.add("error");
+        return false;
       }
+
 }
 
-    
 
-
-
-const cvvValidation = number => {
-  if(number.value == 1){
+//---------FUNCIÓN PARA VALIDAR MES Y AÑO ------------
+const monthAndYear = number => {
+  if (number.value.length == 2) {
     number.classList.add("sucess");
-    console.log("hola");
-   
+    return true;
+  } else {
+    number.classList.add("error");
+    return false;
   }
 }
 
 
 
+//---------FUNCIÓN PARA VALIDAR CVV ------------
+const cvvValidation = number => {
+  if(number.value.length == 3){
+    number.classList.add("sucess");
+    return true;
+  } else {
+    number.classList.add("error");
+    return false;
+  }
+}
+
+
+
+//---------FUNCIÓN PARA NOMBRE Y APELLIDO ------------
+const nameOwnCard = string => {
+  const nameValue = string.value;
+  const arrayName =  nameValue.split(" ");
+  if(arrayName.length >= 2){
+    string.classList.add("sucess");
+    return true;
+  } else {
+    string.classList.add("error");
+    return false;
+  }
+}
+
+
 const validateCardDetails = element => {
   const arrayForm =  Array.from(element);
-
   const numberCard = arrayForm[0];
-  const dueDateCard = arrayForm[1];
-  const cvvCard = arrayForm[2];
-  const nameCard = arrayForm[3];
+  const dueMonthCard = arrayForm[1];
+  const dueYearCard = arrayForm[2];
+  const cvvCard = arrayForm[3];
+  const nameCard = arrayForm[4];
 
   cvvValidation(cvvCard);
+  monthAndYear(dueMonthCard);
+  monthAndYear(dueYearCard);
   numberCardValidation(numberCard);
-
-  numberCard.addEventListener("keypress", onlyNumbers, false);
-  cvvCard.addEventListener("keypress", onlyNumbers, false);
+  nameOwnCard(nameCard);
 }
-validateCardDetails(form)
+
+form.addEventListener("submit", e => {
+  e.preventDefault();
+  if(validateCardDetails(form)) {
+    console.log("datos válido... enviar...");
+  } else {
+    console.log("datos inválidos");
+  }
+});
 
 
 
-/*
-CVV (todas son necesarias)
-No string vacio
-Sean SOLO 3 digitos (no string ni boolean ni nada)
-los numeros sean positivos (que numeros son positivos de 3 digitos¿)
-*/
+//--------- ------------
+const numberCard = document.getElementById('cn')
+const cvvCard = document.getElementById('cvv')
+
+numberCard.addEventListener("keypress", onlyNumbers, false);
+cvvCard.addEventListener("keypress", onlyNumbers, false);
+
+
+
+
+//4152313059935309
+//4915665457040406
