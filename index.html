@@ -11,8 +11,8 @@
 <body>
   <div id="payment">
     <div id="payment-icons">
-      
-    </div>  
+
+    </div>
     <div id="payment-title">
       Payment Information
     </div>
@@ -20,15 +20,22 @@
       <form>
         <div class="form-group">
           <label for="cn">Número de tarjeta</label>
-          <input id="cn" name="cn" type="text" pattern="[0-9]{16}" maxlength="16" required title="Ingresa los 16 digitos de tu tarjeta"/>
+          <input id="cn" name="cn" type="text" pattern="[0-9]{16}" maxlength="16" required title="Ingresa los 16 digitos de tu tarjeta" placeholder="16 digitos"/>
         </div>
         <div class="form-group">
-          <label for="exp">Fecha de vencimiento</label>
-          <input id="exp" name="exp" type="number" minlength="3" maxlength="3" required/>
+          <label for="">Fecha de vencimiento</label>
+          <div class="doble">
+            <label for="exp">Mes</label>
+            <input id="month" name="exp" type="number" min="01" max="12" placeholder="01" required/>
+          </div>
+          <div class="doble">
+            <label for="exp">Año</label>
+            <input id="year" name="exp" type="number" min="18" max="99" placeholder="19" required/>
+          </div>
         </div>
         <div class="form-group">
           <label for="cvv">CVV</label>
-          <input id="cvv" name="cvv" type="text" pattern="[0-9]{3}" minlength="3" maxlength="3" required title="Ingresa los 3 digitos del reverso de tu tarjeta"/>
+          <input id="cvv" name="cvv" type="text" pattern="[0-9]{3}" minlength="3" maxlength="3" required title="Ingresa los 3 digitos del reverso de tu tarjeta" placeholder="000"/>
         </div>
         <div class="form-group">
           <label for="name">Nombre completo</label>
@@ -37,7 +44,7 @@
         <input id="btn-pay" type="submit" value="PAGAR" />
       </form>
     </div>
-   
+
   </div>
   <script type="text/javascript" src="js/app.js"></script>
 </body>
